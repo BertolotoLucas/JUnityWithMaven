@@ -1,6 +1,7 @@
 package br.com.lucasbertoloto.modelo;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 
 public class Funcionario {
@@ -27,4 +28,7 @@ public class Funcionario {
 		return salario;
 	}
 
+	public void readjustmentSalary(BigDecimal readjustment) {
+		this.salario = this.salario.add(readjustment).setScale(2, RoundingMode.HALF_UP);
+	}
 }
