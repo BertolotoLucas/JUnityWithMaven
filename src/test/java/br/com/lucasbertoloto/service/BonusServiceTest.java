@@ -10,11 +10,12 @@ import java.time.LocalDate;
 public class BonusServiceTest {
 
 	@Test
-	void noBonusWhenSalaryGreaterThan10000(){
+	void throwsExceptionWhenSalaryGreaterThan10000(){
 		BonusService bonusService = new BonusService();
-		BigDecimal bonus = bonusService.calcularBonus(new Funcionario("Lúcio", LocalDate.now(),
-				new BigDecimal("10001")));
-		Assertions.assertEquals(new BigDecimal("0.00"),bonus);
+		Assertions.assertThrows(IllegalArgumentException.class,
+				() -> bonusService.calcularBonus(new Funcionario("Lúcio", LocalDate.now(),
+						new BigDecimal("10001"))));
+
 	}
 
 	@Test
