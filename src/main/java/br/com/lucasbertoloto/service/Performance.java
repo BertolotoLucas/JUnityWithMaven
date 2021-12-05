@@ -1,5 +1,5 @@
 package br.com.lucasbertoloto.service;
 
 public enum Performance {
-    TO_DESIRED
+    GOOD, GREAT, TO_DESIRED
 }
