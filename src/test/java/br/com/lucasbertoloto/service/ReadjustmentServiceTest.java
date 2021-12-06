@@ -20,19 +20,19 @@ public class ReadjustmentServiceTest {
     }
 
     @Test
-    void ShouldReturnThreePorcentInPerformanceToDesired(){
+    void ShouldReturnThreePercentInPerformanceToDesired(){
         readjustmentService.grantReadjustment(employee, Performance.TO_DESIRED);
         Assertions.assertEquals(new BigDecimal("1030.00"), employee.getSalary());
     }
 
     @Test
-    void ShouldReturnFifteenPorcentInPerformanceGood(){
+    void ShouldReturnFifteenPercentInPerformanceGood(){
         readjustmentService.grantReadjustment(employee, Performance.GOOD);
         Assertions.assertEquals(new BigDecimal("1150.00"), employee.getSalary());
     }
 
     @Test
-    void ShouldReturnTwentyPorcentInPerformanceGreat(){
+    void ShouldReturnTwentyPercentInPerformanceGreat(){
         readjustmentService.grantReadjustment(employee, Performance.GREAT);
         Assertions.assertEquals(new BigDecimal("1200.00"), employee.getSalary());
     }
