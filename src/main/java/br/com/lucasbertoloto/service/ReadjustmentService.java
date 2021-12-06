@@ -1,15 +1,15 @@
 package br.com.lucasbertoloto.service;
 
-import br.com.lucasbertoloto.modelo.Funcionario;
+import br.com.lucasbertoloto.model.Employee;
 
 import java.math.BigDecimal;
 
 public class ReadjustmentService {
 
-    public void grantReadjustment(Funcionario funcionario, Performance performance) {
+    public void grantReadjustment(Employee employee, Performance performance) {
         BigDecimal percentageReadjustment = performance.getPercentageReadjustment();
-        BigDecimal readjustment = funcionario.getSalario().multiply(percentageReadjustment);
-        funcionario.readjustmentSalary(readjustment);
+        BigDecimal readjustment = employee.getSalary().multiply(percentageReadjustment);
+        employee.readjustmentSalary(readjustment);
     }
 
 }

@@ -1,6 +1,6 @@
 package br.com.lucasbertoloto.service;
 
-import br.com.lucasbertoloto.modelo.Funcionario;
+import br.com.lucasbertoloto.model.Employee;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,29 +11,29 @@ import java.time.LocalDate;
 public class ReadjustmentServiceTest {
 
     private ReadjustmentService readjustmentService;
-    private Funcionario funcionario;
+    private Employee employee;
 
     @BeforeEach
     private void initialize() {
         readjustmentService = new ReadjustmentService();
-        funcionario = new Funcionario("Fábio", LocalDate.now(), new BigDecimal("1000.00"));
+        employee = new Employee("Fábio", LocalDate.now(), new BigDecimal("1000.00"));
     }
 
     @Test
     void ShouldReturnThreePorcentInPerformanceToDesired(){
-        readjustmentService.grantReadjustment(funcionario, Performance.TO_DESIRED);
-        Assertions.assertEquals(new BigDecimal("1030.00"),funcionario.getSalario());
+        readjustmentService.grantReadjustment(employee, Performance.TO_DESIRED);
+        Assertions.assertEquals(new BigDecimal("1030.00"), employee.getSalary());
     }
 
     @Test
     void ShouldReturnFifteenPorcentInPerformanceGood(){
-        readjustmentService.grantReadjustment(funcionario, Performance.GOOD);
-        Assertions.assertEquals(new BigDecimal("1150.00"),funcionario.getSalario());
+        readjustmentService.grantReadjustment(employee, Performance.GOOD);
+        Assertions.assertEquals(new BigDecimal("1150.00"), employee.getSalary());
     }
 
     @Test
     void ShouldReturnTwentyPorcentInPerformanceGreat(){
-        readjustmentService.grantReadjustment(funcionario, Performance.GREAT);
-        Assertions.assertEquals(new BigDecimal("1200.00"),funcionario.getSalario());
+        readjustmentService.grantReadjustment(employee, Performance.GREAT);
+        Assertions.assertEquals(new BigDecimal("1200.00"), employee.getSalary());
     }
 }

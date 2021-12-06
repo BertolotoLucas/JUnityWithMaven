@@ -1,6 +1,6 @@
 package br.com.lucasbertoloto.service;
 
-import br.com.lucasbertoloto.modelo.Funcionario;
+import br.com.lucasbertoloto.model.Employee;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,7 @@ public class BonusServiceTest {
 	void throwsExceptionWhenSalaryGreaterThan10000(){
 		BonusService bonusService = new BonusService();
 		Assertions.assertThrows(IllegalArgumentException.class,
-				() -> bonusService.calcularBonus(new Funcionario("Lúcio", LocalDate.now(),
+				() -> bonusService.calculateBonus(new Employee("Lúcio", LocalDate.now(),
 						new BigDecimal("10001"))));
 
 	}
@@ -21,7 +21,7 @@ public class BonusServiceTest {
 	@Test
 	void bonusShouldBeTenPorcentOfSalary(){
 		BonusService bonusService = new BonusService();
-		BigDecimal bonus = bonusService.calcularBonus(new Funcionario("Lúcio", LocalDate.now(),
+		BigDecimal bonus = bonusService.calculateBonus(new Employee("Lúcio", LocalDate.now(),
 				new BigDecimal("1000")));
 		Assertions.assertEquals(new BigDecimal("100.00"),bonus);
 	}
@@ -29,7 +29,7 @@ public class BonusServiceTest {
 	@Test
 	void bonusShouldBeTenPorcentOfSalaryEqual10000(){
 		BonusService bonusService = new BonusService();
-		BigDecimal bonus = bonusService.calcularBonus(new Funcionario("Lúcio", LocalDate.now(),
+		BigDecimal bonus = bonusService.calculateBonus(new Employee("Lúcio", LocalDate.now(),
 				new BigDecimal("10000")));
 		Assertions.assertEquals(new BigDecimal("1000.00"),bonus);
 	}
